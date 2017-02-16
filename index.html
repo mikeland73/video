@@ -8,16 +8,16 @@
     <script src="https://cdn.pubnub.com/webrtc/webrtc.js"></script>
     <script type="text/javascript">
 
-      function login(form) {
+      function login() {
         var video_out = document.getElementById("vid-box");
 
         var phone = window.phone = PHONE({
-            number        : form.username.value || "Anonymous", // listen on username line else Anonymous
+            number        : 'airbnb_local',
             publish_key   : 'pub-c-737ae89a-f28f-4399-8de8-2b7626ea2c30',
             subscribe_key : 'sub-c-4cc7e6b4-f478-11e6-bb94-0619f8945a4f',
             ssl : true,
         });
-        phone.ready(function(){ form.username.style.background="#55ff5b"; });
+        phone.ready(function(){ window.alert('Video connected, waiting for incoming call.') });
         phone.receive(function(session){
             session.connected(function(session) { video_out.appendChild(session.video); });
             session.ended(function(session) { video_out.innerHTML=''; });
@@ -30,6 +30,8 @@
         else phone.dial(form.number.value);
         return false;
       }
+
+      login('airbnb_local');
 
     </script>
 
