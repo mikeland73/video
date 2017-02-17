@@ -2,14 +2,18 @@
 
   <head>
     <style type="text/css">
-      #vid-box {
+      #your-vid-box {
         width: 220px;
         overflow: hidden;
         height: 320px;
         margin: 100px auto;
       }
-      #vid-box video {
+      #your-vid-box video {
         margin-left: -206px;
+      }
+
+      #vid-box {
+        margin: 100px auto;
       }
     </style>
   </head>
@@ -21,6 +25,17 @@
     <script type="text/javascript">
 
       function login() {
+
+        navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(stream) {
+          /* use the stream */
+          var video = document.querySelector('video');
+          video.srcObject = stream;
+          video.onloadedmetadata = function(e) {
+            video.play();
+          };
+        }).catch(function(err) {
+        /* handle the error */
+        });
 
         let number = window.location.search ? window.location.search.substr(1) : 'airbnb_local';
         console.log(number);
@@ -55,6 +70,9 @@
 
     </script>
 
+    <div id="your-vid-box">
+      <video></video>
+    </div>
     <div id="vid-box"></div>
 
     <!-- <form name="loginForm" id="login" action="#" onsubmit="return login(this);">
