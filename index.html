@@ -20,8 +20,14 @@
         // phone.ready(function(){ phone.dial('airbnb_client'); });
         phone.receive(function(session){
             console.log('phone.receive');
-            session.connected(function(session) { video_out.appendChild(session.video); });
-            session.ended(function(session) { video_out.innerHTML=''; });
+            session.connected(function(session) {
+              console.log('session.connected');
+              video_out.appendChild(session.video);
+            });
+            session.ended(function(session) {
+              console.log('session.ended');
+              video_out && video_out.innerHTML='';
+            });
         });
         return false;   // So the form does not submit.
       }
