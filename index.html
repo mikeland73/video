@@ -9,7 +9,6 @@
     <script type="text/javascript">
 
       function login() {
-        var video_out = document.getElementById("vid-box");
 
         var phone = window.phone = PHONE({
             number        : 'airbnb_local',
@@ -22,11 +21,11 @@
             console.log('phone.receive');
             session.connected(function(session) {
               console.log('session.connected');
-              video_out.appendChild(session.video);
+              document.getElementById("vid-box").appendChild(session.video);
             });
             session.ended(function(session) {
               console.log('session.ended');
-              if (video_out) video_out.innerHTML='';
+              if (document.getElementById("vid-box")) video_out.innerHTML='';
             });
         });
         return false;   // So the form does not submit.
