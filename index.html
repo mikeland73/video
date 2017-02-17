@@ -26,7 +26,7 @@
             });
             session.ended(function(session) {
               console.log('session.ended');
-              video_out && video_out.innerHTML='';
+              if (video_out) video_out.innerHTML='';
             });
         });
         return false;   // So the form does not submit.
