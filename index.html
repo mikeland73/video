@@ -22,8 +22,10 @@
 
       function login() {
 
+        let number = window.location.search ? window.location.search.substr(1) : 'airbnb_local';
+        console.log(number);
         var phone = window.phone = PHONE({
-            number        : 'airbnb_local',
+            number        : number,
             publish_key   : 'pub-c-737ae89a-f28f-4399-8de8-2b7626ea2c30',
             subscribe_key : 'sub-c-4cc7e6b4-f478-11e6-bb94-0619f8945a4f',
             ssl : true,
