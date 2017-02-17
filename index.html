@@ -17,7 +17,7 @@
             subscribe_key : 'sub-c-4cc7e6b4-f478-11e6-bb94-0619f8945a4f',
             ssl : true,
         });
-        phone.ready(function(){ phone.dial('airbnb_client'); });
+        // phone.ready(function(){ phone.dial('airbnb_client'); });
         phone.receive(function(session){
             session.connected(function(session) { video_out.appendChild(session.video); });
             session.ended(function(session) { video_out.innerHTML=''; });
