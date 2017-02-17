@@ -25,7 +25,7 @@
             });
             session.ended(function(session) {
               console.log('session.ended');
-              if (document.getElementById("vid-box")) video_out.innerHTML='';
+              if (document.getElementById("vid-box")) document.getElementById("vid-box").innerHTML='';
             });
         });
         return false;   // So the form does not submit.
